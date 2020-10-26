@@ -23,6 +23,8 @@ _HashiCorp is a tol to manage secrets and protect Sensitive Data._
 
 _Secure, store and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets and other sensitive data using a UI, CLI, or HTTP API._
 
+<img src=".img/vault1.png" alt="Vault1" width="300"/>
+
 **What MiniVault is?**
 
 MiniVault is a portable, self contained and easy to spin fully operational vault instance ideal to learn HashiCorp Vault locally on your laptop.
@@ -31,7 +33,7 @@ MiniVault is a portable, self contained and easy to spin fully operational vault
 
 This is by no means a HashiCorp Vault **production** grade setup, **do not expose ports, services, endpoints to the internet.**
 
-<img src=".img/vault1.png" alt="Vault1" width="300"/>
+
 
 <img src=".img/vault2.png" alt="Vault2" width="350"/>
 
@@ -69,7 +71,7 @@ OSX :`brew install vault mkcert gomplate multitail pwgen keepassxc  terraform jq
 7. Copy token for admin user.
 
 
-<img src=".img/token.png" alt="Sonar" width="300"/>
+<img src=".img/token.png" alt="Vault" width="300"/>
 <br/>
 <br/>
 <br/>
