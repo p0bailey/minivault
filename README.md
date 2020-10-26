@@ -78,12 +78,16 @@ OSX :`brew install vault mkcert gomplate multitail pwgen keepassxc  terraform jq
 
 9. `make scenario_1_apply`
 
+10. [Head to scenario 1](demos/scenario-1/README.md)
+
+
+
 ## Usage
 
 
 ## Scenarions
 
-1. scenario-1 (API tokens distributed across two services)
+1. [scenario-1 (API tokens distributed across two services)](demos/scenario-1/README.md)
 
 ## External resources
 
