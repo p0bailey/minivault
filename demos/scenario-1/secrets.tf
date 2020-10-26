@@ -4,9 +4,8 @@ resource "vault_mount" "this" {
   description = "Secrets"
 }
 
-
-
 resource "random_password" "api_key" {
+  for_each = toset(flatten(keys(var.services)))
   length  = 24
   special = true
   min_numeric = 1
@@ -14,12 +13,14 @@ resource "random_password" "api_key" {
 }
 
 resource "vault_generic_secret" "this" {
-  for_each = var.services
-  path = "secrets/services/${each.key}/prod"
+  for_each = toset(flatten(keys(var.services)))
+  path = "secrets/services/${each.key}/prod/api_key"
 
   data_json = jsonencode({
-    API_KEY = random_password.api_key.result
+    key = random_password.api_key[each.key].result
 })
+
+
 
 depends_on = [vault_mount.this]
 }
