@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  https-helper:
+    image: alpine
+    command: sh -c "cd /vault/certs
+      && wget traefik.me/cert.pem -O cert.pem
+      && wget traefik.me/privkey.pem -O privkey.pem"
+    volumes:
+      - certs:/vault/certs
+  vault:
+   build:
+     context: .
+     dockerfile: Dockerfile
+   ports:
+    - 8200:8200
+   networks:
+      - lab
+   volumes:
+     - ./vault/config:/vault/config
+     - ./vault/data:/vault/data
+     - ./vault/logs:/vault/logs
+     - certs:/vault/certs
+   environment:
+     - VAULT_ADDR=https://{{env.Getenv "VAULT_HOSTNAME" }}:8200
+   command: server -config=/vault/config/vault-config.hcl
+   cap_add:
+     - IPC_LOCK
+
+networks:
+  lab:
+
+volumes:
+  certs:

@@ -1,0 +1,16 @@
+ui = true
+
+backend "file" {
+  path = "/vault/data"
+}
+
+listener "tcp" {
+  tls_disable   = 0
+  address       = "0.0.0.0:8200"
+  tls_cert_file = "/vault/certs/cert.pem"
+  tls_key_file  = "/vault/certs/privkey.pem"
+}
+
+
+api_addr     = "https://{{env.Getenv "VAULT_HOSTNAME" }}:8300"
+cluster_addr = "https://{{env.Getenv "VAULT_HOSTNAME" }}:8201"

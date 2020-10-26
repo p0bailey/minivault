@@ -1,0 +1,21 @@
+vault/*
+*.txt
+*.log
+root_token
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+unseal_key.txt
+*.pem
+*.kdbx
+*terraform.tfstate.backup
+*terraform.tfstate
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
