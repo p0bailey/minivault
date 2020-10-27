@@ -57,16 +57,6 @@ prep () {
   vault login  -no-print "${initial_root_token}"
   vault audit enable file file_path=/vault/logs/audit.log
   vault auth enable userpass
-  # vault secrets enable -path=secret/ kv-v2
-  # vault secrets enable totp
-  # vault secrets enable aws
-  # vault secrets enable database
-  # vault secrets enable ssh
-  # vault secrets enable transit
-  # vault auth enable userpass
-  # vault auth enable approle
-  # vault auth enable aws
-  # vault auth enable cert
   ##Super Admin policy and admin user that can sobsitute almost root.
   admin_pass=${pass_gen}
   admin_pass_store=$admin_pass
